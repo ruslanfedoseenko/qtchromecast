@@ -23,7 +23,7 @@ void SSDPClient::start()
 {
     if (!isRunning()) {
            m_pUdpListener = new UdpMulticastListener("239.255.255.250", 1900,
-                                                    "BrisaSSDPClient");
+                                                    m_serverName);
            connect(m_pUdpListener, SIGNAL(readyRead()), this, SLOT(datagramReceived()));
            m_pUdpListener->start();
 
